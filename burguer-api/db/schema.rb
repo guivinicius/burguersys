@@ -23,4 +23,6 @@ ActiveRecord::Schema.define(version: 20140507154924) do
     t.datetime "updated_at"
   end
 
+  add_index "products", ["name"], name: "index_products_on_name", unique: true, using: :btree
+
 end

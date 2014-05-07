@@ -12,5 +12,11 @@
 require 'spec_helper'
 
 describe Product do
-  
+
+  let(:product) { create(:product) }
+
+  it 'is valid' do
+    expect(product).to be_valid
+  end
+
 end
