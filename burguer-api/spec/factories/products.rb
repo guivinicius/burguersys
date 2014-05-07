@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: burguers
+# Table name: products
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)      not null
@@ -9,8 +9,11 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+# Read about factories at https://github.com/thoughtbot/factory_girl
 
-describe Burguer do
-  
+FactoryGirl.define do
+  factory :product do
+    name "TheOne"
+    price 9
+  end
 end

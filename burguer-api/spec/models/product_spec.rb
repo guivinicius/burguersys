@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: burguers
+# Table name: products
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)      not null
@@ -9,11 +9,8 @@
 #  updated_at :datetime
 #
 
-class Burguer < ActiveRecord::Base
+require 'spec_helper'
 
-  validates :name, :price,
-            presence: true
-
-  validates :price,
-            numericality: { greater_than_or_equal_to: 0 }
+describe Product do
+  
 end

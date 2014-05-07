@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :burguers, except: [:new, :edit]
+  resources :products, except: [:new, :edit]
 
-  root 'burguers#index'
+  root 'products#index'
 end

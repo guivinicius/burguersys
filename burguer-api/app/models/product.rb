@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: burguers
+# Table name: products
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)      not null
@@ -9,11 +9,11 @@
 #  updated_at :datetime
 #
 
-# Read about factories at https://github.com/thoughtbot/factory_girl
+class Product < ActiveRecord::Base
 
-FactoryGirl.define do
-  factory :burguer do
-    name "TheOne"
-    price 9
-  end
+  validates :name, :price,
+            presence: true
+
+  validates :price,
+            numericality: { greater_than_or_equal_to: 0 }
 end
