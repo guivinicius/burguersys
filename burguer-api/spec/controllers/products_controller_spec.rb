@@ -41,9 +41,8 @@ describe ProductsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested Product" do
-        expect {
-          put :update, { id: product.id, product: { name: "NewName" } }
-        }.to change(product, :name).by('NewName')
+        expect_any_instance_of(Product).to receive(:update).with('name' => 'NewName').and_return(true)
+        put :update, id: product.id, product: { name: "NewName" }
       end
     end
   end
