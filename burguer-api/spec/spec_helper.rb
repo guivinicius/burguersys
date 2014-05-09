@@ -17,6 +17,7 @@ RSpec.configure do |config|
 
   # FactoryGirl
   config.include FactoryGirl::Syntax::Methods
+  config.include Requests::JsonHelpers, type: :request
 
   # Database cleaner configuration
   config.before(:suite) do
