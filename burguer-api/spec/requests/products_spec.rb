@@ -4,10 +4,10 @@ describe 'Products API' do
 
   let(:product) { create(:product) }
 
-  describe 'GET /products' do
+  describe 'GET /api/products' do
 
     it 'return status 200' do
-      get '/products'
+      get '/api/products'
       expect(response.status).to eq(200)
     end
 
@@ -15,44 +15,44 @@ describe 'Products API' do
       create(:product)
       create(:product, name: 'TheOther', price: 12)
 
-      get '/products'
+      get '/api/products'
       expect(json.length).to eq(2)
     end
 
   end
 
-  describe 'GET /products/:id' do
+  describe 'GET /api/products/:id' do
 
     it 'return status 200' do
-      get "/products/#{product.id}"
+      get "/api/products/#{product.id}"
       expect(response.status).to eq(200)
     end
 
     it 'returns a product' do
-      get "/products/#{product.id}"
+      get "/api/products/#{product.id}"
       expect(json['name']).to eq(product.name)
     end
 
   end
 
-  describe 'POST /products' do
+  describe 'POST /api/products' do
 
     it 'return status 200' do
-      post "/products", product: { name: 'BigBig', price: 20 }
+      post "/api/products", product: { name: 'BigBig', price: 20 }
       expect(response.status).to eq(200)
     end
 
   end
 
-  describe 'PUT /products/:id' do
+  describe 'PUT /api/products/:id' do
 
     it 'return status 200' do
-      put "/products/#{product.id}", product: { name: 'BigBig' }
+      put "/api/products/#{product.id}", product: { name: 'BigBig' }
       expect(response.status).to eq(200)
     end
 
     it 'return the updated record' do
-      put "/products/#{product.id}", product: { name: 'BigBig' }
+      put "/api/products/#{product.id}", product: { name: 'BigBig' }
       expect(json['name']).to eq('BigBig')
     end
 

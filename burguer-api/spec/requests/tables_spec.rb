@@ -4,9 +4,9 @@ describe 'Products API' do
   let!(:table1) { create(:table, number: 1) }
   let!(:table2) { create(:table, number: 2) }
 
-  describe 'GET /tables' do
+  describe 'GET /api/tables' do
     before do
-      get '/tables'
+      get '/api/tables'
     end
 
     it 'returns status 200' do

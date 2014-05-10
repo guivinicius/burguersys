@@ -19,33 +19,33 @@ describe 'Orders API' do
     }
   }
 
-  describe 'GET /orders' do
+  describe 'GET /api/orders' do
     it 'return status 200' do
-      get '/orders'
+      get '/api/orders'
       expect(response.status).to eq(200)
     end
 
     it 'returns all products' do
-      get '/orders'
+      get '/api/orders'
       expect(json.length).to eq(1)
     end
   end
 
-  describe 'GET /orders/:id' do
+  describe 'GET /api/orders/:id' do
     it 'return status 200' do
-      get "/orders/#{order.id}"
+      get "/api/orders/#{order.id}"
       expect(response.status).to eq(200)
     end
 
     it 'returns a order' do
-      get "/orders/#{order.id}"
+      get "/api/orders/#{order.id}"
       expect(json['id']).to eq(order.id)
     end
   end
 
-  describe 'POST /orders' do
+  describe 'POST /api/orders' do
     before do
-      post '/orders', order: valid_attributes
+      post '/api/orders', order: valid_attributes
     end
 
     it 'return status 200' do
@@ -66,9 +66,9 @@ describe 'Orders API' do
 
   end
 
-  describe 'PUT /orders/:id' do
+  describe 'PUT /api/orders/:id' do
     before do
-      put "/orders/#{order.id}", order: { status: 'doing' }
+      put "/api/orders/#{order.id}", order: { status: 'doing' }
     end
 
     it 'return status 200' do

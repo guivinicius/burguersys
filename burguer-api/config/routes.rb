@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'tables/index'
-
-  resources :orders, except: [:new, :edit]
-  resources :products, except: [:new, :edit]
-  resources :tables, only: [:index]
+  scope path: '/api' do
+    resources :orders, except: [:new, :edit, :destroy]
+    resources :products, except: [:new, :edit, :destroy]
+    resources :tables, only: [:index]
+  end
 
   root 'products#index'
 end
