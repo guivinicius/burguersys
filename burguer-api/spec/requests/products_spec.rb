@@ -39,7 +39,6 @@ describe 'Products API' do
 
     it 'return status 200' do
       post "/products", product: { name: 'BigBig', price: 20 }
-      puts response.body
       expect(response.status).to eq(200)
     end
 

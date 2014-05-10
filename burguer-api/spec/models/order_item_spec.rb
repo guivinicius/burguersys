@@ -20,11 +20,17 @@ describe OrderItem do
   let(:order) { create(:order) }
 
   let(:order_item) {
-    create(:order_item, order_id: order.id, product_id: product.id)
+    create(:order_item, order_id: order.id, product_id: product.id, quantity: 3, price: 10)
   }
 
   it 'is valid' do
     expect(order_item).to be_valid
+  end
+
+  describe '#total' do
+    it 'returns the total price' do
+      expect(order_item.total).to eq(30)
+    end
   end
 
 end
