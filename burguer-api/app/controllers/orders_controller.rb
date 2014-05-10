@@ -34,6 +34,9 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:status, :address_id, :orderable_id, :orderable_type, order_items_attributes: [:product_id, :quantity])
+    address_params     = [:street, :number, :postalcode, :neighborhood, :city, :state]
+    order_items_params = [:product_id, :quantity]
+
+    params.require(:order).permit(:status, :orderable_id, :orderable_type, order_items_attributes: order_items_params, address_attributes: address_params)
   end
 end

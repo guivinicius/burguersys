@@ -4,7 +4,7 @@ describe OrdersController do
 
   let(:product) { create(:product) }
   let(:table)   { create(:table)   }
-  let!(:order)   {
+  let!(:order)  {
     create(:order, orderable_id: table.id, orderable_type: 'Table')
   }
 

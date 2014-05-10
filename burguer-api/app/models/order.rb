@@ -27,5 +27,9 @@ class Order < ActiveRecord::Base
 
   validates_associated :order_items, :orderable
 
-  accepts_nested_attributes_for :order_items
+  accepts_nested_attributes_for :order_items, :address
+
+  def as_json(options)
+    super(include: [:order_items, :address])
+  end
 end
