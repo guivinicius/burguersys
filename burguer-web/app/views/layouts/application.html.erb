@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>BurguerWeb</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="pt-BR">
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Buguersys" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Buguersys" %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
 
-</body>
+    <main role="main">
+      <%= yield %>
+    </main>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+
 </html>
