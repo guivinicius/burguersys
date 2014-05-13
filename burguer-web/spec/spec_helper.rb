@@ -19,6 +19,5 @@ VCR.configure do |c|
 end
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false
   config.order = "random"
 end
